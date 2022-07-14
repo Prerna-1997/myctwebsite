@@ -146,8 +146,15 @@ a {
 
         }
 
-        document.getElementsByClassName('wzrk-overlay')[0].addEventListener('click', function (event) {
-                  document.getElementsByClassName("wzrk-alert")[0].remove()
+        $(document).click(function(e) {
+              var $target = $(e.target);
+              var popupContent = $(".wzrk-alert");
+              if (!$target.is(popupContent) ) {
+                if ($('.wzrk-alert').is(':visible')) {
+                  //$('#popup').hide();
+                  $(".wzrk-alert").removeClass('show');
+            }
+          }
         });
 
         function subscribe_push(){
