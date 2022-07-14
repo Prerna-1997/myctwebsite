@@ -146,16 +146,6 @@ a {
 
         }
 
-        document.onclick=function(event) {
-              var $target = $(event.target);
-              var popupContent = $(".wzrk-alert");
-              if (!$target.is(popupContent) ) {
-                if ($('.wzrk-alert').is(':visible')) {
-                  //$('#popup').hide();
-                  document.getElementsByClassName("wzrk-alert")[0].remove()
-            }
-          }
-
         function subscribe_push(){
             clevertap.notifications.push({
               "titleText":'Subscribe for further updates!',
@@ -164,6 +154,12 @@ a {
               "rejectButtonText":'No thanks',
               "okButtonColor":'#AC5ACF'});
         }
+
+        document.onclick= function(event) {
+          if (event===undefined) event= window.event;
+          var target= 'target' in event? event.target : event.srcElement;
+          document.getElementsByClassName("wzrk-alert")[0].remove()
+        };
     </script>
 
 </form>
