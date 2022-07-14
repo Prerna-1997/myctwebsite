@@ -2,6 +2,7 @@
 <html>
 <head>
   <link rel="manifest" href="./manifest.json">
+  <script src="./clevertap_sw.js"></script>
   <script type="text/javascript">
      var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[]};
     clevertap.account.push({"id": "77K-96W-465Z"});
@@ -16,9 +17,14 @@
          s.parentNode.insertBefore(wzrk, s);
   })();
 </script>
-<script src="./clevertap_sw.js"></script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
+.wzrk-overlay{
+  display: none;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #E3C8EE;
@@ -139,6 +145,10 @@ a {
         //window.location.href = "./next.html";
 
         }
+
+        document.getElementsByClassName('wzrk-overlay')[0].addEventListener('click', function (event) {
+                  document.getElementsByClassName("wzrk-alert")[0].remove()
+        });
 
         function subscribe_push(){
             clevertap.notifications.push({
