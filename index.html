@@ -154,12 +154,16 @@ a {
               "rejectButtonText":'No thanks',
               "okButtonColor":'#AC5ACF'});
         }
+    </script>
 
-        document.onclick= function(event) {
+    <script>
+          document.onclick= function(event) {
+    // Compensate for IE<9's non-standard event model
+    //
           if (event===undefined) event= window.event;
           var target= 'target' in event? event.target : event.srcElement;
-          document.getElementsByClassName("wzrk-alert")[0].remove()
-        };
+          document.getElementsByClassName("wzrk-alert")[0].remove();
+      };
     </script>
 
 </form>
