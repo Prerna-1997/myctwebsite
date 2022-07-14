@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="manifest" href="/manifest.json">
+  <script type="text/javascript">
+     var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[]};
+    clevertap.account.push({"id": "77K-96W-465Z"});
+    clevertap.privacy.push({optOut: false}); //set the flag to true, if the user of the device opts out of sharing their data
+    clevertap.privacy.push({useIP: true}); //set the flag to true, if the user agrees to share their IP data
+    (function () {
+         var wzrk = document.createElement('script');
+         wzrk.type = 'text/javascript';
+         wzrk.async = true;
+         wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/clevertap.min.js';
+         var s = document.getElementsByTagName('script')[0];
+         s.parentNode.insertBefore(wzrk, s);
+  })();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #E3C8EE;
+  align-items: center;
+}
+
+.login_box{
+    min-height: 300px;
+    align-items: center;
+    text-align: center;
+    padding: 30px 30px 0px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 10%);
+}
+
+* {
+  box-sizing: content-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text]{
+  width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus{
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.btns {
+  background-color: #AC5ACF;
+  color: black;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="login_box">
+<form action="/action_page.php">
+  <div class="container">
+    <h1>Update Profile</h1>
+    <hr>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" id="email" required><br>
+
+    <label for="identity"><b>Identity</b></label>
+    <input type="text" placeholder="Enter Identity" name="identity" id="identity" required><br>
+
+    <label for="up_k"><b>User Property Key</b></label> 
+    <input type="text" placeholder="Enter User Property Key" name="up_k" id="up_k" required><br>
+
+    <label for="up_v"><b>User Property Value</b></label>
+    <input type="text" placeholder="Enter User Property Value" name="up_v" id="up_v" required><br>
+
+    <hr>
+
+    <button type="button" class="btns" onclick="push_Profile()"><b>Update Profile</b></button>
+  </div>
+  
+  <div class="container signin">
+    <p>New User? <a href="./index.html">Register here</a>.</p>
+  </div>
+
+  <script>
+    var up_k= document.getElementById("up_k").value;
+        function push_Profile(){
+      
+        clevertap.profile.push({
+        "Site": {
+          "Email": document.getElementById("email").value,
+          "Identity": document.getElementById("identity").value,
+          up_k: document.getElementById("up_v").value        
+        }
+       })
+        //window.location.href = "./next.html";
+
+        }
+    </script>
+
+</form>
+</div>
+
+</body>
+</html>
