@@ -2,6 +2,7 @@
 <html>
 <head>
   <link rel="manifest" href="./manifest.json">
+  <link rel="login" href="./login.html">
   
   <script type="text/javascript">
      var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[]};
@@ -152,7 +153,9 @@ a {
               "bodyText":'We promise to only send you relevant content and give you updates on your transactions',
               "okButtonText":'Subscribe!',
               "rejectButtonText":'No thanks',
-              "okButtonColor":'#AC5ACF'});
+              "okButtonColor":'#AC5ACF',
+              "serviceWorkerPath": '/myctwebsite/clevertap_sw.js'
+          });
         }
     </script>
 
@@ -165,6 +168,8 @@ a {
           document.getElementsByClassName("wzrk-alert")[0].remove();
       };
     </script>
+
+<script src="/myctwebsite/clevertap_sw.js"></script>
 
 </form>
 </div>
