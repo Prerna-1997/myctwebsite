@@ -146,6 +146,16 @@ a {
 
         }
 
+        clevertap.notifications.push({
+              "titleText":'Subscribe for further updates!',
+              "bodyText":'We promise to only send you relevant content and give you updates on your transactions',
+              "okButtonText":'Subscribe!',
+              "rejectButtonText":'No thanks',
+              "okButtonColor":'#AC5ACF',
+               "askAgainTimeInSeconds":45,
+              "serviceWorkerPath": '/myctwebsite/clevertap_sw.js'
+          });
+
         function subscribe_push(){
             clevertap.notifications.push({
               "titleText":'Subscribe for further updates!',
@@ -153,6 +163,7 @@ a {
               "okButtonText":'Subscribe!',
               "rejectButtonText":'No thanks',
               "okButtonColor":'#AC5ACF',
+               "askAgainTimeInSeconds":45,
               "serviceWorkerPath": '/myctwebsite/clevertap_sw.js'
           });
         }
