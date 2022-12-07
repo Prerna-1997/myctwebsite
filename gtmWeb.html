@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="manifest" href="./manifest.json">
-  
-  <script type="text/javascript">
+  <link rel="manifest" href="/manifest.json">
+ <!-- <script type="text/javascript">
      var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[]};
     clevertap.account.push({"id": "77K-96W-465Z"});
     clevertap.privacy.push({optOut: false}); //set the flag to true, if the user of the device opts out of sharing their data
@@ -16,15 +15,10 @@
          var s = document.getElementsByTagName('script')[0];
          s.parentNode.insertBefore(wzrk, s);
   })();
-</script>
+</script>-->
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-
-.wzrk-overlay{
-  display: none;
-}
-
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #E3C8EE;
@@ -98,6 +92,7 @@ a {
   text-align: center;
 }
 </style>
+<script src="./clevertap_sw.js"></script>
 </head>
 <body>
 <div class="login_box">
@@ -146,43 +141,15 @@ a {
 
         }
 
-        clevertap.notifications.push({
-              "titleText":'Subscribe for further updates!',
-              "bodyText":'We promise to only send you relevant content and give you updates on your transactions',
-              "okButtonText":'Subscribe!',
-              "rejectButtonText":'No thanks',
-              "okButtonColor":'#AC5ACF',
-               "askAgainTimeInSeconds":15,
-              "serviceWorkerPath": '/myctwebsite/clevertap_sw.js'
-          });
-
         function subscribe_push(){
-
-        	console.log()
-            /*clevertap.notifications.push({
+            clevertap.notifications.push({
               "titleText":'Subscribe for further updates!',
               "bodyText":'We promise to only send you relevant content and give you updates on your transactions',
               "okButtonText":'Subscribe!',
               "rejectButtonText":'No thanks',
-              "okButtonColor":'#AC5ACF',
-              "serviceWorkerPath": '/myctwebsite/clevertap_sw.js'
-          });*/
-          Notification.requestPermission().then(function(permission) { console.log('permiss', permission)});
-
+              "okButtonColor":'#AC5ACF'});
         }
     </script>
-
-    <script>
-          document.onclick= function(event) {
-    // Compensate for IE<9's non-standard event model
-    //
-          if (event===undefined) event= window.event;
-          var target= 'target' in event? event.target : event.srcElement;
-          document.getElementsByClassName("wzrk-alert")[0].remove();
-      };
-    </script>
-
-<script src="/myctwebsite/clevertap_sw.js"></script>
 
 </form>
 </div>
