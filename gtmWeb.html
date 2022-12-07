@@ -146,7 +146,8 @@ a {
           var uid = document.getElementById("identity").value;
           var mob= document.getElementById("phone").value;
           console.log(firstname)
-          dataLayer.push({'name': 'firstname', 'email': 'emailid', 'identity': 'uid', 'phone': 'mob'});
+          dataLayer.push({'name': firstname, 'email': emailid, 'identity': uid, 'phone': mob});
+          dataLayer.push({event: 'Sign Up'})
         }
         //window.location.href = "./next.html";
 
