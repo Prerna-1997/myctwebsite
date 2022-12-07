@@ -138,31 +138,29 @@ a {
     <p>Push Profile <a href="./pushprofile.html">Push Profile</a>.</p>
   </div>
 
-  <!--<script>
-        function registration(){
-      
-        clevertap.onUserLogin.push({
-        "Site": {
+  <script>
+        function registration()
+        {
           "Name":document.getElementById("fname").value ,
           "Email": document.getElementById("email").value,
           "Identity": document.getElementById("identity").value ,  
           "Phone": document.getElementById("phone").value , 
-          "MSG-whatsapp": true,              
+          window.dataLayer.push({name: 'name', email: 'email', identity: 'identity', phone: 'phone'})             
         }
-       })
         //window.location.href = "./next.html";
 
-        }
-
-        function subscribe_push(){
+        
+ </script>
+  <!--      function subscribe_push(){
             clevertap.notifications.push({
               "titleText":'Subscribe for further updates!',
               "bodyText":'We promise to only send you relevant content and give you updates on your transactions',
               "okButtonText":'Subscribe!',
               "rejectButtonText":'No thanks',
               "okButtonColor":'#AC5ACF'});
-        }
-    </script>-->
+              dataLayer.push({event: 'Subscribe'})
+        }-->
+   
 
 </form>
 </div>
