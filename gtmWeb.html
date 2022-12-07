@@ -141,11 +141,11 @@ a {
   <script>
         function registration()
         {
-          "Name":document.getElementById("fname").value ,
-          "Email": document.getElementById("email").value,
-          "Identity": document.getElementById("identity").value ,  
-          "Phone": document.getElementById("phone").value , 
-          window.dataLayer.push({name: 'name', email: 'email', identity: 'identity', phone: 'phone'})             
+          var firstN = document.getElementById("fname").value ,
+          var Email = document.getElementById("email").value,
+          var uid = document.getElementById("identity").value ,  
+          var mob= document.getElementById("phone").value , 
+          window.dataLayer.push({name: 'firstN', email: 'Email', identity: 'uid', phone: 'mob'})             
         }
         //window.location.href = "./next.html";
 
