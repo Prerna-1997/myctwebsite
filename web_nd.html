@@ -68,7 +68,15 @@ body {
 <script>
     function show_nd()
     {
-        clevertap.event.push("Charged")
+	if (window.CleverTap) 
+	{
+  		// Call Android interface             
+ 		CleverTap.pushEvent("Charged");          
+	}
+	else
+	{
+        	clevertap.event.push("Charged")
+	}
     }   
 </script>
 </body>
