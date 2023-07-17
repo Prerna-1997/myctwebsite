@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Web Native Display</title>
+	<script type="text/javascript">
+     var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[]};
+    clevertap.account.push({"id": "ZWW-WWW-WWRZ"});
+    clevertap.privacy.push({optOut: false}); //set the flag to true, if the user of the device opts out of sharing their data
+    clevertap.privacy.push({useIP: true}); //set the flag to true, if the user agrees to share their IP data
+    (function () {
+         var wzrk = document.createElement('script');
+         wzrk.type = 'text/javascript';
+         wzrk.async = true;
+         wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/clevertap.min.js';
+         var s = document.getElementsByTagName('script')[0];
+         s.parentNode.insertBefore(wzrk, s);
+  })();
+  document.addEventListener("CT_web_native_display", function(event) {
+    console.log(event);
+});
+</script>
+<style>
+#Ct-banner-homepage {
+	width: auto;  
+	text-align: center;  
+	padding: 15px;  
+	border: 3px solid red;
+}
+img{
+	width: 100%
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #E3C8EE;
+  align-items: center;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: #E3C8EE;
+  text-align: center;
+}
+
+/* Set a style for the submit button */
+.btns {
+  background-color: #AC5ACF;
+  color: black;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  opacity: 0.9;
+}
+</style>
+</head>
+<body>
+<div class="container">
+	<button type="button" class="btns" onclick="show_nd()"><b>Show Native Display</b></button>
+</div>
+<div id="Ct-banner-homepage">
+	<img src="https://ct-cart.netlify.app/images/men-carousel.jpg" >
+</div>
+<script>
+    function show_nd()
+    {
+        clevertap.event.push("Charged")
+    }   
+</script>
+</body>
+</html>
