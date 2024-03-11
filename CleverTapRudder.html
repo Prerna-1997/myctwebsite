@@ -17,6 +17,14 @@ e.page()}();
 
   if (window.rudderanalytics && window.rudderanalytics.initialized) {
       onRudderStackReady();
+      rudderanalytics.track(
+        "page_loaded", {
+            page: "https://prerna-1997.github.io/myctwebsite/CleverTapRudder.html"
+        },
+        () => {
+            console.log("track call");
+        }
+    );
   } 
   else 
   {
@@ -142,14 +150,7 @@ a {
 
     
 
-    rudderanalytics.track(
-    "page_loaded", {
-        page: "https://prerna-1997.github.io/myctwebsite/CleverTapRudder.html"
-    },
-    () => {
-        console.log("track call");
-    }
-);
+    
 
         function registration(){
       
