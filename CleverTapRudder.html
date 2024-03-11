@@ -9,15 +9,9 @@ e.load("2dWkumh629SBT5HczNE3B4PE91z","https://clevertapyqg.dataplane.rudderstack
 e.page()}();
 
 
-  function onRudderStackReady() {
-      rudderanalytics.ready(() => {
-      console.log("All set!");
-    });
-  }
-
-  if (window.rudderanalytics && window.rudderanalytics.initialized) {
-      onRudderStackReady();
-      rudderanalytics.track(
+ function onRudderStackReady() {
+    console.log("RudderStack is ready!");
+    rudderanalytics.track(
         "page_loaded", {
             page: "https://prerna-1997.github.io/myctwebsite/CleverTapRudder.html"
         },
@@ -25,11 +19,14 @@ e.page()}();
             console.log("track call");
         }
     );
-  } 
-  else 
-  {
-      console.log("Not Initialized");
-  }
+}
+
+if (window.rudderanalytics && window.rudderanalytics.initialized) {
+    onRudderStackReady();
+} else {
+    console.log("Not Initialized");
+}
+
 
 </script>
 
