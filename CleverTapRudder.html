@@ -8,10 +8,6 @@
 e.load("2dWkumh629SBT5HczNE3B4PE91z","https://clevertapyqg.dataplane.rudderstack.com"),
 e.page()}();
 
-rudderanalytics.ready(() => {
-    console.log("All set!");
-});
-
 </script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -128,30 +124,16 @@ a {
   </div>
 
   <script>
+
+    rudderanalytics.ready(() => {
+    console.log("All set!");
+});
         function registration(){
       
-        clevertap.onUserLogin.push({
-        "Site": {
-          "Name":document.getElementById("fname").value ,
-          "Email": document.getElementById("email").value,
-          "Identity": document.getElementById("identity").value ,  
-          "Phone": document.getElementById("phone").value , 
-          "MSG-whatsapp": true,              
-        }
-       })
-        //window.location.href = "./next.html";
-
+        
         }
 
-        clevertap.notifications.push({
-              "titleText":'Subscribe for further updates!',
-              "bodyText":'We promise to only send you relevant content and give you updates on your transactions',
-              "okButtonText":'Subscribe!',
-              "rejectButtonText":'No thanks',
-              "okButtonColor":'#AC5ACF',
-               "askAgainTimeInSeconds":15,
-              "serviceWorkerPath": '/myctwebsite/clevertap_sw.js'
-          });
+        
 
         function subscribe_push(){
 
@@ -164,21 +146,21 @@ a {
               "okButtonColor":'#AC5ACF',
               "serviceWorkerPath": '/myctwebsite/clevertap_sw.js'
           });*/
-          Notification.requestPermission().then(function(permission) { console.log('permiss', permission)});
+         // Notification.requestPermission().then(function(permission) { console.log('permiss', permission)});
 
         }
     </script>
 
     <script>
-          document.onclick= function(event) {
+         /* document.onclick= function(event) {
 
           if (event===undefined) event= window.event;
           var target= 'target' in event? event.target : event.srcElement;
           document.getElementsByClassName("wzrk-alert")[0].remove();
-      };
+      };*/
     </script>
 
-<script src="/myctwebsite/clevertap_sw.js"></script>
+<!--<script src="/myctwebsite/clevertap_sw.js"></script>-->
 
 </form>
 </div>
