@@ -56,6 +56,24 @@ body {
   width: 50%;
   opacity: 0.9;
 }
+
+.floating-button-div {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+
+.fb {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+}
 </style>
 </head>
 <body>
@@ -64,6 +82,10 @@ body {
 </div>
 <div id="Ct-banner-homepage">
 	<img src="https://ct-cart.netlify.app/images/men-carousel.jpg" >
+</div>
+
+<div class="floating-button-div">
+  <button class="fb">Floating Button</button>
 </div>
 <script>
     function show_nd()
