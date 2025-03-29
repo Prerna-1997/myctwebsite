@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
 
     <script type="text/javascript">
-     var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[], region: REGION, token: "0a5-3c4"};
+     var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[], region: "EU1", token: "0a5-3c4"};
        //replace TOKEN with Account Token value from your Dashboard -> Settings page
        //replace the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard > Settings page.
       clevertap.account.push({"id": "49K-57W-4Z6Z"});
@@ -23,7 +23,7 @@
            var wzrk = document.createElement('script');
            wzrk.type = 'text/javascript';
            wzrk.async = true;
-           wzrk.src = 'https://d2r1yp2w7bby2u.cloudfront.net/js/clevertap.min.js';
+           wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/clevertap.min.js';
            var s = document.getElementsByTagName('script')[0];
            s.parentNode.insertBefore(wzrk, s);
         })();
@@ -61,12 +61,12 @@
         }
         .slick-prev {
             left: 10px;
-            background: url('prev-arrow.png') no-repeat center center;
+            background: no-repeat center center;
             background-size: contain;
         }
         .slick-next {
             right: 10px;
-            background: url('next-arrow.png') no-repeat center center;
+            background: no-repeat center center;
             background-size: contain;
         }
 
