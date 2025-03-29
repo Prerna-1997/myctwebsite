@@ -2,106 +2,271 @@
 <html>
 <head>
   <link rel="manifest" href="./manifest.json">
-  <script type="text/javascript">
-    
-     var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[]};
-    clevertap.account.push({"id": "49K-57W-4Z6Z"});
-    clevertap.privacy.push({optOut: false}); //set the flag to true, if the user of the device opts out of sharing their data
-    clevertap.privacy.push({useIP: true}); //set the flag to true, if the user agrees to share their IP data
-    (function () {
-         var wzrk = document.createElement('script');
-         wzrk.type = 'text/javascript';
-         wzrk.async = true;
-         wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/clevertap.min.js';
-         var s = document.getElementsByTagName('script')[0];
-         s.parentNode.insertBefore(wzrk, s);
-  })();
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
 
-</script>
-
+    <script type="text/javascript">
+     var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[], region: REGION, token: "0a5-3c4"};
+       //replace TOKEN with Account Token value from your Dashboard -> Settings page
+       //replace the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard > Settings page.
+      clevertap.account.push({"id": "49K-57W-4Z6Z"});
+      clevertap.privacy.push({optOut: false}); //set the flag to true, if the user of the device opts out of sharing their data
+      clevertap.privacy.push({useIP: true}); //set the flag to true, if the user agrees to share their IP data
+       (function () {
+           var wzrk = document.createElement('script');
+           wzrk.type = 'text/javascript';
+           wzrk.async = true;
+           wzrk.src = 'https://d2r1yp2w7bby2u.cloudfront.net/js/clevertap.min.js';
+           var s = document.getElementsByTagName('script')[0];
+           s.parentNode.insertBefore(wzrk, s);
+        })();
+      </script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; }
+
+        /* Carousel Styles */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            overflow: hidden;
+        }
+        .carousel img {
+            width: 100%;
+            height: 60vh;
+            object-fit: cover;
+        }
+
+        .slick-prev, .slick-next {
+            width: 50px;
+            height: 50px;
+            z-index: 1000;
+            background-color: rgba(172, 90, 207, 0.8)
+            border-radius: 50%; /* Makes the background circular */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000; /* Ensures it's above the images */
+        }
+        .slick-prev {
+            left: 10px;
+            background: url('prev-arrow.png') no-repeat center center;
+            background-size: contain;
+        }
+        .slick-next {
+            right: 10px;
+            background: url('next-arrow.png') no-repeat center center;
+            background-size: contain;
+        }
+
+        .slick-prev:hover, .slick-next:hover {
+          background-color: rgba(172, 90, 207, 1); /* Fully opaque on hover */
+        }
+
+        .slick-prev::before, .slick-next::before {
+            color: white;
+            font-size: 24px; /* Adjust icon size */
+        }
+          
+
+        /* LHS & RHS Section */
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            padding: 50px;
+        }
+        .lhs img {
+            width: 100%;
+            max-width: 400px;
+            object-fit: cover;
+        }
+        .rhs {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        input, button {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #AC5ACF;
+            color: white;
+            cursor: pointer;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px; /* Adds space between Register and Login buttons */
+        }
+        .tab-link {
+            flex: 1;
+            padding: 10px;
+            background-color: #AC5ACF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* Info Section */
+        .info-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+            margin-top: 20px;
+        }
+
+        /* Card Grid */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Card Styling */
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            height: 200px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Card Images */
+        .card img {
+            width: 100%;
+            max-width: 150px;
+            height: 100%;
+            object-fit: contain; /* Ensures proper aspect ratio without cropping */
+            background: white;
+        }
 
 .wzrk-overlay{
   display: none;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #E3C8EE;
-  align-items: center;
-}
-
-.login_box{
-    min-height: 300px;
-    align-items: center;
-    text-align: center;
-    padding: 30px 30px 0px 30px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgb(0 0 0 / 10%);
-}
-
-* {
-  box-sizing: content-box;
-}
-
-/* Add padding to containers */
-.container {
-  padding: 16px;
-  background-color: white;
-}
-
-/* Full-width input fields */
-input[type=text]{
-  width: 50%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
-
-input[type=text]:focus{
-  background-color: #ddd;
-  outline: none;
-}
-
-/* Overwrite default styles of hr */
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
-
-/* Set a style for the submit button */
-.btns {
-  background-color: #AC5ACF;
-  color: black;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 50%;
-  opacity: 0.9;
-}
-
-.registerbtn:hover {
-  opacity: 1;
-}
-
-/* Add a blue text color to links */
-a {
-  color: dodgerblue;
-}
-
-/* Set a grey background color and center the text of the "sign in" section */
-.signin {
-  background-color: #f1f1f1;
-  text-align: center;
-}
 </style>
 </head>
 <body>
-<div class="login_box">
+<!-- Carousel -->
+    <div class="carousel-container">
+        <div class="carousel">
+            <img src="https://clevertap.com/wp-content/uploads/2021/07/Blog-header.gif" alt="Banner 1">
+            <img src="https://cdn3.notifyvisitors.com/blog/wp-content/uploads/2020/10/Mobile-Push-Notifications-A-Vital-Component_banner-new.webp" alt="Banner 2">
+            <img src="https://clevertap.com/wp-content/uploads/2023/04/Sticky-app-blog-header.png" alt="Banner 3">
+        </div>
+    </div>
+
+  <!-- Registration & Login Section -->
+    <div class="content">
+      <!-- LHS Image -->
+      <div class="lhs">
+        <img src="https://static.vecteezy.com/system/resources/previews/003/689/228/non_2x/online-registration-or-sign-up-login-for-account-on-smartphone-app-user-interface-with-secure-password-mobile-application-for-ui-web-banner-access-cartoon-people-illustration-vector.jpg" alt="LHS Image">
+      </div>
+
+        <div class="rhs">
+            <div class="form-container">
+                <div class="tabs">
+                    <button class="tab-link active" onclick="openTab(event, 'register')">Register</button>
+                    <button class="tab-link" onclick="openTab(event, 'login')">Login</button>
+                </div>
+                
+                <div id="register" class="tab-content active">
+                    <h2>Register</h2>
+                    <input type="text" id="fname" placeholder="Name" required>
+                    <input type="email" id="email" placeholder="Email" required>
+                    <input type="text" id="identity" placeholder="Identity" required>
+                    <input type="tel" id="phone" placeholder="Phone" required>
+                    <button type="button" onclick="registration()">Register</button>
+                    <button type="button" onclick="subscribe_push()">Subscribe for updates!</button>
+                </div>
+                
+                <div id="login" class="tab-content">
+                    <h2>Login</h2>
+                    <input type="email" id="email" placeholder="Email" required>
+                    <input type="text" id="identity" placeholder="Identity" required>
+                    <input type="text" placeholder="Enter User Property Key" name="up_k" id="up_k" required>
+                    <input type="text" placeholder="Enter User Property Value" name="up_v" id="up_v" required>
+                    <button type="button" onclick="login_btn()">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Business Verticals Section -->
+    <div class="info-section">
+        <h2>Explore Business Verticals</h2>
+        <div class="card-container">
+            <a href="./vertical.html" target="_blank">
+              <div class="card"><img src="https://marketplace.canva.com/EAGQ1aYlOWs/1/0/1600w/canva-blue-colorful-illustrative-e-commerce-online-shop-logo-bHiX_0QpJxE.jpg"></div>
+            </a>
+            <a href="./vertical.html" target="_blank">
+              <div class="card"><img src="https://c8.alamy.com/comp/FGFGR4/concept-image-of-business-acronym-bfsi-banking-finance-services-and-FGFGR4.jpg"></div>
+            </a>
+            <a href="./vertical.html" target="_blank">
+              <div class="card"><img src="https://cdn.sanity.io/images/kts928pd/production/acf71dc493554cc492578b8b5b8beb4ee20e8873-731x731.png"></div>
+            </a>
+            <a href="./vertical.html" target="_blank">
+              <div class="card"><img src="https://static.vecteezy.com/system/resources/previews/033/082/662/non_2x/ott-video-content-platform-icon-vector.jpg"></div>
+            </a>
+            <a href="./vertical.html" target="_blank">
+              <div class="card"><img src="https://thumbs.dreamstime.com/b/job-vacancy-work-search-logo-design-template-job-vacancy-work-search-logo-design-113122017.jpg"></div>
+            </a>
+            <a href="./vertical.html" target="_blank">
+              <div class="card"><img src="https://static.vecteezy.com/system/resources/previews/016/227/291/non_2x/bull-with-chart-bar-logo-design-finance-logo-design-free-vector.jpg"></div>
+            </a>
+            <a href="./vertical.html" target="_blank">
+              <div class="card"><img src="https://static.vecteezy.com/system/resources/previews/007/092/484/non_2x/education-technology-logo-design-vector.jpg"></div>
+            </a>
+            <a href="./vertical.html" target="_blank">
+              <div class="card"><img src="https://st2.depositphotos.com/6789684/12262/v/450/depositphotos_122620866-stock-illustration-illustration-of-flat-icon.jpg"></div></a>
+            <a href="./vertical.html" target="_blank">
+              <div class="card"><img src="https://i.pinimg.com/736x/75/4b/e6/754be694219b85db52e74de2c803e193.jpg"></div>
+            </a>
+            <a href="./vertical.html" target="_blank">
+              <div class="card"><img src="https://thumbs.dreamstime.com/b/inspiring-design-explore-letter-symbol-logo-vector-illustration-unique-drawn-activity-script-print-wild-explorer-black-white-169644956.jpg"></div>
+            </a>
+            
+        </div>
+    </div>
+
+  
+<!-- <div class="login_box">
 <form action="/action_page.php">
   <div class="container">
     <h1>Register</h1>
@@ -130,22 +295,61 @@ a {
     <p>Already have an account? <a href="./login.html">Sign in</a>.</p>
     <p>Push Profile <a href="./pushprofile.html">Push Profile</a>.</p>
   </div>
-
+ -->
  <script>
+
+        $(document).ready(function(){
+            $('.carousel').slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                adaptiveHeight: true,
+                prevArrow: '<button type="button" class="slick-prev"></button>',
+                nextArrow: '<button type="button" class="slick-next"></button>'
+            });
+        });
+   
         function registration(){
       
         clevertap.onUserLogin.push({
         "Site": {
-          "Name":document.getElementById("fname").value ,
+          "Name": document.getElementById("fname").value,
           "Email": document.getElementById("email").value,
-          "Identity": document.getElementById("identity").value ,  
-          "Phone": document.getElementById("phone").value , 
-          "MSG-whatsapp": true,              
+          "Identity": document.getElementById("identity").value,
+          "Phone": document.getElementById("phone").value,
+          "MSG-whatsapp": true,            
         }
        })
-        //window.location.href = "./next.html";
+        // Show success alert
+            alert("Registration successful! Welcome, " + name + " 🎉");
 
+            // Optionally, clear the form fields after registration
+            document.getElementById("fname").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("identity").value = "";
+            document.getElementById("phone").value = "";
         }
+
+
+        function login_btn(){
+              clevertap.onUserLogin.push({
+                "Site": {
+                  "Email": document.getElementById("email").value,
+                  "Identity": document.getElementById("identity").value         
+                }
+             });
+            // Show success alert
+            alert("Login successful! Welcome back, " + name + " 🎉");
+
+            // Optionally, clear the form fields after registration
+            document.getElementById("fname").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("identity").value = "";
+            document.getElementById("phone").value = "";
+        }    
 
         clevertap.notifications.push({
               "titleText":'Subscribe for further updates!',
@@ -157,30 +361,30 @@ a {
               "serviceWorkerPath": '/myctwebsite/clevertap_sw.js'
           });
 
-        function subscribe_push(){
+        // function subscribe_push(){
 
-        	console.log()
-            /*clevertap.notifications.push({
-              "titleText":'Subscribe for further updates!',
-              "bodyText":'We promise to only send you relevant content and give you updates on your transactions',
-              "okButtonText":'Subscribe!',
-              "rejectButtonText":'No thanks',
-              "okButtonColor":'#AC5ACF',
-              "serviceWorkerPath": '/myctwebsite/clevertap_sw.js'
-          });*/
-          Notification.requestPermission().then(function(permission) { console.log('permiss', permission)});
+        // 	console.log()
+        //     /*clevertap.notifications.push({
+        //       "titleText":'Subscribe for further updates!',
+        //       "bodyText":'We promise to only send you relevant content and give you updates on your transactions',
+        //       "okButtonText":'Subscribe!',
+        //       "rejectButtonText":'No thanks',
+        //       "okButtonColor":'#AC5ACF',
+        //       "serviceWorkerPath": '/myctwebsite/clevertap_sw.js'
+        //   });*/
+        //   Notification.requestPermission().then(function(permission) { console.log('permiss', permission)});
 
-        }
+        // }
     </script>
 
     <script>
-          document.onclick= function(event) {
-    // Compensate for IE<9's non-standard event model
-    //
-          if (event===undefined) event= window.event;
-          var target= 'target' in event? event.target : event.srcElement;
-          document.getElementsByClassName("wzrk-alert")[0].remove();
-      };
+    //       document.onclick= function(event) {
+    // // Compensate for IE<9's non-standard event model
+    // //
+    //       if (event===undefined) event= window.event;
+    //       var target= 'target' in event? event.target : event.srcElement;
+    //       document.getElementsByClassName("wzrk-alert")[0].remove();
+    //   };
     </script>
 
 <script src="/myctwebsite/clevertap_sw.js"></script>
