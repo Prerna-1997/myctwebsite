@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Vertical</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+
+    <script type="text/javascript">
+     var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[], region: REGION, token: "0a5-3c4"};
+       //replace TOKEN with Account Token value from your Dashboard -> Settings page
+       //replace the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard > Settings page.
+      clevertap.account.push({"id": "49K-57W-4Z6Z"});
+      clevertap.privacy.push({optOut: false}); //set the flag to true, if the user of the device opts out of sharing their data
+      clevertap.privacy.push({useIP: true}); //set the flag to true, if the user agrees to share their IP data
+       (function () {
+           var wzrk = document.createElement('script');
+           wzrk.type = 'text/javascript';
+           wzrk.async = true;
+           wzrk.src = 'https://d2r1yp2w7bby2u.cloudfront.net/js/clevertap.min.js';
+           var s = document.getElementsByTagName('script')[0];
+           s.parentNode.insertBefore(wzrk, s);
+        })();
+      </script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; }
+
+        /* Carousel Styles */
+        .carousel-container {
+            width: 100%;
+            height: 60vh;
+            overflow: hidden;
+        }
+        .carousel img {
+            width: 100%;
+            height: 60vh;
+            object-fit: cover;
+        }
+
+        .slick-prev, .slick-next {
+            width: 50px;
+            height: 50px;
+            z-index: 1000;
+            background-color: rgba(172, 90, 207, 0.8)
+            border-radius: 50%; /* Makes the background circular */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000; /* Ensures it's above the images */
+        }
+        .slick-prev {
+            left: 10px;
+            background: url('prev-arrow.png') no-repeat center center;
+            background-size: contain;
+        }
+        .slick-next {
+            right: 10px;
+            background: url('next-arrow.png') no-repeat center center;
+            background-size: contain;
+        }
+
+        .slick-prev:hover, .slick-next:hover {
+          background-color: rgba(172, 90, 207, 1); /* Fully opaque on hover */
+        }
+
+        .slick-prev::before, .slick-next::before {
+            color: white;
+            font-size: 24px; /* Adjust icon size */
+        }
+
+        /* LHS & RHS Section */
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            padding: 50px;
+        }
+        .lhs img {
+            width: 100%;
+            max-width: 400px;
+            object-fit: cover;
+        }
+        .rhs {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        input, button {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #AC5ACF;
+            color: white;
+            cursor: pointer;
+        }
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* Info Section */
+        .info-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+            margin-top: 20px;
+        }
+
+        /* Card Grid */
+        .card-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Card Styling */
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            width: 250px; /* Ensure fixed width */
+            height: 400px; /* Ensure fixed height */
+            text-align: center;
+        }
+
+        .card-text {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 10px 0;
+            flex-grow: 1; /* Helps text align properly */
+        }
+
+        .card-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-buttons button {
+            background-color: #AC5ACF;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .card-buttons button:hover {
+            background-color: #8b42b2;
+        }
+
+        /* Card Images */
+        .card img {
+            width: 100%;
+            max-width: 150px;
+            height: 100%;
+            object-fit: contain; /* Ensures proper aspect ratio without cropping */
+            background: white;
+        }
+
+        /* Floating Button */
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #FFFFFF;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+        }
+
+        .floating-button:hover {
+            background-color: #E2DFD2;
+            transform: scale(1.1);
+        }
+
+        /* Image inside the button */
+        .floating-button img {
+            width: 100%;
+            height: 100%;
+           object-fit: cover; /* Ensures 1:1 aspect ratio */
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Carousel -->
+    <div class="carousel-container">
+        <div class="carousel">
+            <img src="https://clevertap.com/wp-content/uploads/2021/07/Blog-header.gif" alt="Banner 1">
+            <img src="https://cdn3.notifyvisitors.com/blog/wp-content/uploads/2020/10/Mobile-Push-Notifications-A-Vital-Component_banner-new.webp" alt="Banner 2">
+            <img src="https://clevertap.com/wp-content/uploads/2023/04/Sticky-app-blog-header.png" alt="Banner 3">
+        </div>
+    </div>
+
+     <!-- Business Verticals Section -->
+    <div class="info-section">
+        <h2>Explore Business Verticals</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://marketplace.canva.com/EAGQ1aYlOWs/1/0/1600w/canva-blue-colorful-illustrative-e-commerce-online-shop-logo-bHiX_0QpJxE.jpg"><br>
+                <p class="card-text">E-Commerce Solutions</p>
+                <div class="card-buttons">
+                    <button onclick="viewMore('ecommerce')">View More</button>
+                    <button onclick="learnMore('ecommerce')">Learn More</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://c8.alamy.com/comp/FGFGR4/concept-image-of-business-acronym-bfsi-banking-finance-services-and-FGFGR4.jpg">
+                <p class="card-text">Banking & Finance</p>
+                <div class="card-buttons">
+                    <button onclick="viewMore('bfsi')">View More</button>
+                    <button onclick="learnMore('bfsi')">Learn More</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://cdn.sanity.io/images/kts928pd/production/acf71dc493554cc492578b8b5b8beb4ee20e8873-731x731.png">
+                <p class="card-text">Healthcare Solutions</p>
+                <div class="card-buttons">
+                    <button onclick="viewMore('healthcare')">View More</button>
+                    <button onclick="learnMore('healthcare')">Learn More</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://static.vecteezy.com/system/resources/previews/033/082/662/non_2x/ott-video-content-platform-icon-vector.jpg">
+                <p class="card-text">OTT Solutions</p>
+                <div class="card-buttons">
+                    <button onclick="viewMore('ott')">View More</button>
+                    <button onclick="learnMore('ott')">Learn More</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://thumbs.dreamstime.com/b/job-vacancy-work-search-logo-design-template-job-vacancy-work-search-logo-design-113122017.jpg">
+                <p class="card-text">Job Solutions</p>
+                <div class="card-buttons">
+                    <button onclick="viewMore('job')">View More</button>
+                    <button onclick="learnMore('job')">Learn More</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://static.vecteezy.com/system/resources/previews/016/227/291/non_2x/bull-with-chart-bar-logo-design-finance-logo-design-free-vector.jpg">
+                <p class="card-text">Stocks Solutions</p>
+                <div class="card-buttons">
+                    <button onclick="viewMore('stocks')">View More</button>
+                    <button onclick="learnMore('stocks')">Learn More</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://static.vecteezy.com/system/resources/previews/007/092/484/non_2x/education-technology-logo-design-vector.jpg">
+                <p class="card-text">Edtech Solutions</p>
+                <div class="card-buttons">
+                    <button onclick="viewMore('edtech')">View More</button>
+                    <button onclick="learnMore('edtech')">Learn More</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://st2.depositphotos.com/6789684/12262/v/450/depositphotos_122620866-stock-illustration-illustration-of-flat-icon.jpg">
+                <p class="card-text">News Solutions</p>
+                <div class="card-buttons">
+                    <button onclick="viewMore('news')">View More</button>
+                    <button onclick="learnMore('news')">Learn More</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/75/4b/e6/754be694219b85db52e74de2c803e193.jpg">
+                <p class="card-text">Gaming Solutions</p>
+                <div class="card-buttons">
+                    <button onclick="viewMore('gaming')">View More</button>
+                    <button onclick="learnMore('gaming')">Learn More</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://thumbs.dreamstime.com/b/inspiring-design-explore-letter-symbol-logo-vector-illustration-unique-drawn-activity-script-print-wild-explorer-black-white-169644956.jpg">
+                <p class="card-text">Explore Solutions</p>
+                <div class="card-buttons">
+                    <button onclick="viewMore('ott')">View More</button>
+                    <button onclick="learnMore('ott')">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Single -->
+    <div class="carousel-container">
+        <div class="carousel">
+            <img src="https://thefinch.design/wp-content/uploads/2024/03/best-strategies-for-mobile-app-retention-and-user-engagement.jpg" alt="Banner 1">
+        </div>
+    </div>
+
+    <!-- Floating Button -->
+    <button class="floating-button"><img src="https://i.pinimg.com/736x/53/1d/17/531d17ab43b8911a0a48b3526e29ea4e.jpg" alt="Floating Button"></button>
+
+    <script>
+        $(document).ready(function(){
+            $('.carousel').slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                adaptiveHeight: true
+            });
+        });
+        
+    </script>
+</body>
+</html>
