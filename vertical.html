@@ -24,6 +24,28 @@
            var s = document.getElementsByTagName('script')[0];
            s.parentNode.insertBefore(wzrk, s);
         })();
+
+
+         function initializeVar()
+        {
+            const singleBanner = clevertap.defineVariable("var_string", "true");
+            clevertap.syncVariables();
+            clevertap.fetchVariables(
+                    // Success callback function
+                    () => {
+                        console.log("Fetch successful");
+                        const defaultSingleBanner = singleBanner.getdefaultValue();
+                        const singleBanner = singleBanner.getValue(); // returns current value
+                        console.log("defaultSingleBanner: ", defaultSingleBanner);
+                        console.log("singleBanner: ", singleBanner);
+                        if (singleBanner) {
+                            console.log('Value is true')
+                        } else {
+                            console.log('Value is false')
+                        }
+                    }
+                );
+        }
       </script>
     
     <style>
@@ -338,26 +360,7 @@
             });
         });
 
-        function initializeVar()
-        {
-            const singleBanner = clevertap.defineVariable("var_string", "true");
-            clevertap.syncVariables();
-            clevertap.fetchVariables(
-                    // Success callback function
-                    () => {
-                        console.log("Fetch successful");
-                        const defaultSingleBanner = singleBanner.getdefaultValue();
-                        const singleBanner = singleBanner.getValue(); // returns current value
-                        console.log("defaultSingleBanner: ", defaultSingleBanner);
-                        console.log("singleBanner: ", singleBanner);
-                        if (singleBanner) {
-                            console.log('Value is true')
-                        } else {
-                            console.log('Value is false')
-                        }
-                    }
-                );
-        }
+       
     </script>
 </body>
 </html>
