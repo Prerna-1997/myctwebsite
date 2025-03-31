@@ -24,6 +24,10 @@
            var s = document.getElementsByTagName('script')[0];
            s.parentNode.insertBefore(wzrk, s);
         })();
+
+        clevertap.event.push("Business Vertical Page", {
+          "Page URL":"https://prerna-1997.github.io/myctwebsite/vertical.html"
+        });
         
       </script>
     
@@ -327,25 +331,6 @@
     <button class="floating-button"><img src="https://i.pinimg.com/736x/53/1d/17/531d17ab43b8911a0a48b3526e29ea4e.jpg" alt="Floating Button"></button>
 
     <script>
-         //Web PE implementation
-        // function initializeVar()
-        // {
-        //     const singleBannerImageUrl = clevertap.defineVariable("vertical_single_banner_image", "https://thefinch.design/wp-content/uploads/2024/03/best-strategies-for-mobile-app-retention-and-user-engagement.jpg");
-        //     clevertap.syncVariables(  
-        //       // Success callback function  
-        //       () => { console.log('Sync successful'); },
-            
-        //       // Failure callback function  
-        //       () => { console.log('Sync failed'); }  
-        //     );
-        
-        //     function updateSingleBannerImage() {
-        //         const singlebannerImgElement = document.getElementById("single-banner");
-        //         if (singlebannerImgElement) {
-        //             singlebannerImgElement.src = singleBannerImageUrl.value;
-        //         }
-        // }
-        
         $(document).ready(function(){
             $('.carousel').slick({
                 autoplay: true,
@@ -358,6 +343,28 @@
             });
         });
  
+    </script>
+
+    <script>
+        //Web PE implementation
+        function initializeVar()
+        {
+            const singleBannerImageUrl = clevertap.defineVariable("vertical_single_banner_image", "https://thefinch.design/wp-content/uploads/2024/03/best-strategies-for-mobile-app-retention-and-user-engagement.jpg");
+            clevertap.syncVariables(  
+              // Success callback function  
+              () => { console.log('Sync successful'); },
+            
+              // Failure callback function  
+              () => { console.log('Sync failed'); }  
+            );
+        
+            function updateSingleBannerImage() {
+                const singlebannerImgElement = document.getElementById("single-banner");
+                if (singlebannerImgElement) {
+                    singlebannerImgElement.src = singleBannerImageUrl.value;
+                }
+        }
+        
     </script>
 </body>
 </html>
