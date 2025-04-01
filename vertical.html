@@ -330,8 +330,8 @@
     <script>
         const singlebannerImgElement = document.getElementById("single-banner");
         console.log("div Banner Image URL:", singlebannerImgElement);
-         const newImageUrl1 = singlebannerImgElement.src;
-        console.log("Updated Banner Image URL:", newImageUrl1);
+        const newImageUrl = singlebannerImgElement.src;
+        console.log("Updated Banner Image URL:", newImageUrl);
         //Web PE implementation
         function initializeVar()
         {
@@ -352,11 +352,9 @@
 
             function updateSingleBannerImage() 
             {
-                const singlebannerImgElement = document.getElementById("single-banner");
+                //const singlebannerImgElement = document.getElementById("single-banner");
                 if (singlebannerImgElement) 
                 {
-                    const newImageUrl = singleBannerImageUrl.getValue();
-                    console.log("Updated Banner Image URL:", newImageUrl);
                     singlebannerImgElement.src = newImageUrl;
                 } 
                 else 
