@@ -354,7 +354,6 @@
             clevertap.syncVariables(  
               // Success callback function  
               () => { console.log('Sync successful'); },
-                updateSingleBannerImage();
              
               // Failure callback function  
               () => { console.log('Sync failed'); }  
@@ -373,6 +372,7 @@
                     singlebannerImgElement.src = newImageUrl;
                 }
             }
+            updateSingleBannerImage();
             
         }
 
