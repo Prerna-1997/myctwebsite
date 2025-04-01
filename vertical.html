@@ -350,11 +350,13 @@
               () => { console.log('Fetch successful'); },  
             );
 
-            function updateSingleBannerImage() 
+            function updateSingleBannerImage(singlebannerImgElement) 
             {
                 //const singlebannerImgElement = document.getElementById("single-banner");
                 if (singlebannerImgElement) 
                 {
+                    const newImageUrl = singleBannerImageUrl.getValue();
+                    console.log("Under IF condition Updated Banner Image URL:", newImageUrl);
                     singlebannerImgElement.src = newImageUrl;
                 } 
                 else 
