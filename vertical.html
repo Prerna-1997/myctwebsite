@@ -323,26 +323,15 @@
     <!-- Single -->
     <div class="carousel-container">
         <div class="carousel">
-            <img id="single-banner" src="https://thefinch.design/wp-content/uploads/2024/03/best-strategies-for-mobile-app-retention-and-user-engagement.jpg" alt="Banner 1">
+            <img id="single-banner" src="https://thefinch.design/wp-content/uploads/2024/03/best-strategies-for-mobile-app-retention-and-user-engagement.jpg" alt="Banner 1"/>
         </div>
     </div>
 
     <script>
-        function updateSingleBannerImage() 
-        {
-            const singlebannerImgElement = document.getElementById("single-banner");
-            if (singlebannerImgElement) 
-            {
-                const newImageUrl = singleBannerImageUrl.getValue();
-                console.log("Updated Banner Image URL:", newImageUrl);
-                singlebannerImgElement.src = newImageUrl;
-            } 
-            else 
-            {
-               console.error("Element #single-banner not found.");
-            }
-        }
-        
+        const singlebannerImgElement = document.getElementById("single-banner");
+        console.log("div Banner Image URL:", singlebannerImgElement);
+         const newImageUrl1 = singlebannerImgElement.src;
+        console.log("Updated Banner Image URL:", newImageUrl1);
         //Web PE implementation
         function initializeVar()
         {
@@ -360,9 +349,22 @@
               // Success callback function  
               () => { console.log('Fetch successful'); },  
             );
-        
-            updateSingleBannerImage();
-            
+
+            function updateSingleBannerImage() 
+            {
+                const singlebannerImgElement = document.getElementById("single-banner");
+                if (singlebannerImgElement) 
+                {
+                    const newImageUrl = singleBannerImageUrl.getValue();
+                    console.log("Updated Banner Image URL:", newImageUrl);
+                    singlebannerImgElement.src = newImageUrl;
+                } 
+                else 
+                {
+                   console.error("Element #single-banner not found.");
+                }
+            }
+            updateSingleBannerImage();     
         }
 
         document.addEventListener("DOMContentLoaded", function () {
