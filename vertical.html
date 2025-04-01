@@ -366,10 +366,12 @@
                     
             function updateSingleBannerImage() {
                 const singlebannerImgElement = document.getElementById("single-banner");
-                if (singlebannerImgElement) {
+                 if (singlebannerImgElement) {
                     const newImageUrl = singleBannerImageUrl.getValue();
                     console.log("Updated Banner Image URL:", newImageUrl);
                     singlebannerImgElement.src = newImageUrl;
+                } else {
+                    console.error("Element #single-banner not found.");
                 }
             }
             updateSingleBannerImage();
