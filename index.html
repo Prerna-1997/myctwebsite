@@ -382,6 +382,40 @@
     </script>
 
     <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          const cards = document.querySelectorAll(".card-container a");
+  
+          cards.forEach((card, index) => {
+              card.addEventListener("click", function() {
+                  // Get the vertical name based on index
+                  const verticalNames = [
+                      "E-Commerce", "Banking & Finance", "Healthcare", "OTT",
+                      "Job Solutions", "Stock Market", "EdTech", "News",
+                      "Gaming", "Explore"
+                  ];
+  
+                  const selectedVertical = verticalNames[index] || "Unknown";
+  
+                  // Raise CleverTap Event
+                  clevertap.event.push("Business Vertical Page", {
+                      "Vertical Name": selectedVertical
+                  });
+
+                clevertap.profile.push({
+                   "Site": {
+                     "Category": selectedVertical
+                   }
+                  });
+
+  
+                  console.log("CleverTap Event Sent: ${selectedVertical}");
+              });
+          });
+      });
+  </script>
+
+
+    <script>
     //       document.onclick= function(event) {
     // // Compensate for IE<9's non-standard event model
     // //
