@@ -328,6 +328,21 @@
     </div>
 
     <script>
+        function updateSingleBannerImage() 
+        {
+            const singlebannerImgElement = document.getElementById("single-banner");
+            if (singlebannerImgElement) 
+            {
+                const newImageUrl = singleBannerImageUrl.getValue();
+                console.log("Updated Banner Image URL:", newImageUrl);
+                singlebannerImgElement.src = newImageUrl;
+            } 
+            else 
+            {
+               console.error("Element #single-banner not found.");
+            }
+        }
+        
         //Web PE implementation
         function initializeVar()
         {
@@ -345,17 +360,7 @@
               // Success callback function  
               () => { console.log('Fetch successful'); },  
             );
-                    
-            function updateSingleBannerImage() {
-                const singlebannerImgElement = document.getElementById("single-banner");
-                 if (singlebannerImgElement) {
-                    const newImageUrl = singleBannerImageUrl.getValue();
-                    console.log("Updated Banner Image URL:", newImageUrl);
-                    singlebannerImgElement.src = newImageUrl;
-                } else {
-                    console.error("Element #single-banner not found.");
-                }
-            }
+        
             updateSingleBannerImage();
             
         }
