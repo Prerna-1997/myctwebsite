@@ -354,18 +354,26 @@
             clevertap.syncVariables(  
               // Success callback function  
               () => { console.log('Sync successful'); },
-            
+                updateSingleBannerImage();
+             
               // Failure callback function  
               () => { console.log('Sync failed'); }  
             );
-        
+
+            clevertap.fetchVariables(  
+              // Success callback function  
+              () => { console.log('Fetch successful'); },  
+            );
+                    
             function updateSingleBannerImage() {
                 const singlebannerImgElement = document.getElementById("single-banner");
                 if (singlebannerImgElement) {
-                    singlebannerImgElement.src = singleBannerImageUrl.value;
+                    const newImageUrl = singleBannerImageUrl.getValue();
+                    console.log("Updated Banner Image URL:", newImageUrl);
+                    singlebannerImgElement.src = newImageUrl;
                 }
             }
-            updateSingleBannerImage();
+            
         }
 
         setTimeout(function() {
