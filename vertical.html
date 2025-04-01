@@ -345,7 +345,7 @@
  
     </script>
 
-    <script>
+    <script defer>
         //Web PE implementation
         function initializeVar()
         {
@@ -368,9 +368,11 @@
             updateSingleBannerImage();
         }
 
-        setTimeout(function() {
-            initializeVar();
-        }, 1000);
+        // setTimeout(function() {
+        //     initializeVar();
+        // }, 1000);
+
+        initializeVar();
         
     </script>
 </body>
