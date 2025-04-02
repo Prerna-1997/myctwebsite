@@ -328,6 +328,8 @@
     </div>
 
     <script>
+
+        var singleBannerImageUrl;
         const singlebannerImgElement = document.getElementById("single-banner");
         console.log("div Banner Image URL:", singlebannerImgElement);
         const newImageUrl = singlebannerImgElement.src;
@@ -336,7 +338,7 @@
         function initializeVar()
         {
             clevertap.setLogLevel(4);
-            const singleBannerImageUrl = clevertap.defineVariable("vertical_single_banner_image", "https://thefinch.design/wp-content/uploads/2024/03/best-strategies-for-mobile-app-retention-and-user-engagement.jpg");
+            singleBannerImageUrl = clevertap.defineVariable("vertical_single_banner_image", "https://thefinch.design/wp-content/uploads/2024/03/best-strategies-for-mobile-app-retention-and-user-engagement.jpg");
             clevertap.syncVariables(  
               // Success callback function  
               () => { console.log('Sync successful'); },
