@@ -348,9 +348,11 @@
             clevertap.fetchVariables(  
               // Success callback function  
               () => { console.log('Fetch successful'); },  
-            );
+            );  
+            updateSingleBannerImage();
+        }
 
-            function updateSingleBannerImage(singlebannerImgElement) 
+         function updateSingleBannerImage() 
             {
                 //const singlebannerImgElement = document.getElementById("single-banner");
                 if (singlebannerImgElement) 
@@ -364,8 +366,6 @@
                    console.error("Element #single-banner not found.");
                 }
             }
-            updateSingleBannerImage(singlebannerImgElement);     
-        }
 
         document.addEventListener("DOMContentLoaded", function () {
             setTimeout(function() {
