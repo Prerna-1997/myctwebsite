@@ -359,7 +359,7 @@
                 //const singlebannerImgElement = document.getElementById("single-banner");
                 if (singlebannerImgElement) 
                 {
-                    const newImageUrl = singleBannerImageUrl.getValue();
+                    const newImageUrl = clevertap.getVariableValue('vertical_single_banner_image');
                     console.log("Under IF condition Updated Banner Image URL:", newImageUrl);
                     singlebannerImgElement.src = newImageUrl;
                 } 
