@@ -1,0 +1,180 @@
+<html>
+
+<head>
+    <title>Unsubscribe from email</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+//check for internet connection
+window.onload = checkInternetConnection;
+function checkInternetConnection() {
+  var isOnLine = navigator.onLine;
+  if (!isOnLine) {
+    alert("Internet connection is lost!");
+  }
+}
+</script>
+
+<style>
+div.fadeMe {
+  background: #fff; 
+  width:      100%;
+  height:     100%; 
+  z-index:    10;
+  top:        0; 
+  left:       0; 
+  position:   fixed; 
+}
+.adBanner {
+    background-color: transparent;
+    height: 1px;
+    width: 1px;
+}
+.button{
+  background-color: #4CAF50; 
+  color: white;
+  padding: 15px 32px;  
+  text-align: center; 
+  display: inline-block; 
+  font-size: 16px;  
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
+  display: block;
+  justify-content: center;
+  margin: 10px auto 0px auto;
+}
+.overlay{
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.5);
+}
+.popup{
+   display: inline-block;
+   justify-content: center;
+   margin-top: 10%; 
+   width: 50%;
+   height:50%;
+   transform: translateX(50%);
+   background-color: white;
+   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8);
+}
+.unsubbox{
+   margin-top:10%;
+   width: 30%;
+   transform: translateX(110%);
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   padding:10px;
+   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
+   background: linear-gradient(180deg, #e6ffe6 0%, #fff 51%, #e6ffe6 85%);
+}
+</style>
+
+<!-- CleverTap embed -->
+<script type="text/javascript">
+var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[]};
+clevertap.account.push({ "id": "49K-57W-4Z6Z" });
+clevertap.privacy.push({optOut: false});
+clevertap.privacy.push({useIP: false});
+(function () {
+  var wzrk = document.createElement('script');
+  wzrk.type = 'text/javascript';
+  wzrk.async = true;
+  wzrk.src = ('https:' == document.location.protocol ? 
+      'https://d2r1yp2w7bby2u.cloudfront.net' : 
+      'http://static.clevertap.com') + '/js/clevertap.min.js';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(wzrk, s);
+})();
+</script>
+</head>
+
+<body style="background: linear-gradient(55deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 85%);">
+
+<!-- Check for AdBlocker -->
+<div id="wrapfabtest">
+  <div class="adBanner"></div>
+</div>
+
+<!-- If JS is disabled -->
+<div id="JSDiv" class="fadeMe" style="background-color: white; border: 2; width:100%; height:100%; margin:0; left:0; top:0;"> 
+  <h1 style="text-align: center; color: red">
+    Please Enable JavaScript and refresh the page to Unsubscribe Successfully!
+  </h1>
+  <script>document.getElementById('JSDiv').style.display = "none";</script>
+</div>
+
+<!-- AdBlock detected -->
+<div class="overlay" id="overlay"> 
+  <div class="popup"> 
+    <h2 style="color: #3661ff; text-decoration: bold; text-align: center;">Please turn off your AdBlocker to unsubscribe successfully!</h2>
+    <br/><br/>
+    <p style="color: #4CAF50; text-align: center;">Some message to your users</p>
+    <br/> 
+    <button class="button" onClick="window.location.reload();">Refresh Page</button> 
+  </div>
+  <script>document.getElementById('overlay').style.display = "none";</script>
+</div>
+
+<!-- Unsubscribe card -->
+<div class="unsubbox" id="unsubbox">
+  <h4 id="unsubscribe-text" style="text-align: center;">
+    I want to unsubscribe from future emails for 
+    <span id="email" style="font-weight: bold; color: #333;">Loading email...</span>.
+  </h4>
+  <br/><br/>
+  <button class="button" style="position: relative;transform: translateX(0.5%);" onclick="unsubscribe()">Unsubscribe me</button>
+  <br/><br/>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  // check the height of the pixel ad
+  if($("#wrapfabtest").height() > 0) {
+  } else {
+    //when adblock is detected
+    document.getElementById('overlay').style.display = "block";
+    document.getElementById('unsubbox').style.display = "none";
+  }
+});
+</script>
+
+<script type="text/javascript">
+  var isReEncode = false;
+
+  // On page load, fetch the email ID of the user.
+  window.onload = function() {
+    checkInternetConnection();
+    $WZRK_WR.getEmail(isReEncode);
+  };
+
+  // Called after the email ID has been fetched
+  function wzrk_email_fetched(emailStr) {
+    document.getElementById("email").innerText = emailStr;
+  }
+
+  // Called after subscription preferences updated
+  function wzrk_email_subscription(status) {
+    var statusLabel = (status == 0) ? 'unsubscribed' : 'subscribed';
+    alert("You've been " + statusLabel);
+  }
+
+  // Unsubscribe function
+  function unsubscribe() {
+    checkInternetConnection();
+    $WZRK_WR.unSubEmail(isReEncode);
+  }
+
+  // Resubscribe function (optional)
+  function resubscribe() {
+    $WZRK_WR.subEmail(isReEncode);
+  }
+</script>
+
+</body>
+</html>
