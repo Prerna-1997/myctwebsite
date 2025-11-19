@@ -33,18 +33,19 @@
          wzrk.type = 'text/javascript';
          wzrk.async = true;
          wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/clevertap.min.js';
-         var s = document.getElementsByTagName('script')[0];
-         s.parentNode.insertBefore(wzrk, s);
-      })();
-
-    wzrk.onload = function () {
+         wzrk.onload = function () {
         // NOW the SDK is ready → anonymous profile is created internally
 
         var ctId = clevertap.getCleverTapID();
         alert("Anonymous CleverTap Profile Created.\nCT ID: " + ctId);
         console.log("CT ID:", ctId);
-    };
+        };
+  
+         var s = document.getElementsByTagName('script')[0];
+         s.parentNode.insertBefore(wzrk, s);
+      })();
 
+    
     alert("CleverTap SDK initialized");
 });
 </script>
