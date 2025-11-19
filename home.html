@@ -16,15 +16,18 @@
 
 .button1 {background-color: #A54CCF;} 
 </style>
+</head>
+<body>
+  <button class="button button1" id="ct-btn">Call CleverTap SDK</button>
   <script>
-document.getElementById("ct-btn").addEventListener("click", function () {
+  document.getElementById("ct-btn").addEventListener("click", function () {
 
     // Load CT script dynamically
     var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[]};
     // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
     clevertap.account.push({ "id": "49K-57W-4Z6Z" });
     clevertap.privacy.push({optOut: false}); //set the flag to true, if the user of the device opts out of sharing their data
-    clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agrees to share their IP data
+    clevertap.privacy.push({useIP: true}); //set the flag to true, if the user agrees to share their IP data
      (function () {
          var wzrk = document.createElement('script');
          wzrk.type = 'text/javascript';
@@ -34,11 +37,16 @@ document.getElementById("ct-btn").addEventListener("click", function () {
          s.parentNode.insertBefore(wzrk, s);
       })();
 
+    wzrk.onload = function () {
+        // NOW the SDK is ready → anonymous profile is created internally
+
+        var ctId = clevertap.getCleverTapID();
+        alert("Anonymous CleverTap Profile Created.\nCT ID: " + ctId);
+        console.log("CT ID:", ctId);
+    };
+
     alert("CleverTap SDK initialized");
 });
 </script>
-</head>
-<body>
-  <button class="button button1" id="ct-btn">Call CleverTap SDK</button>
 </body>
 </html>
